@@ -135,12 +135,12 @@ class ECSConsulReg:
         return None
 
     def deregister_service(self, id, name):
-        log.info("Deregestering {} ({})".format(id, name))
+        log.info("Deregstering {} ({})".format(id, name))
         self.consul_client.agent.service.deregister(service_id=id)
         self.registered.pop(id)
 
     def deregister_services(self):
-        for id, name in self.registered.items():
+        for id, name in list(self.registered.items()):
             self.deregister_service(id, name)
 
     def register_service(self, id, name, port):
