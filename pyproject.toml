@@ -1,0 +1,22 @@
+[project]
+name = "ecs-consul-reg"
+version = "0.1.0"
+description = "Register ECS containers with Consul"
+readme = "README.md"
+authors = [
+    { name = "Robin Stark", email = "robin@devoli.com" }
+]
+requires-python = ">=3.13"
+dependencies = [
+    "click>=8.3.1",
+    "docker>=7.1.0",
+    "python-consul>=1.1.0",
+    "pyyaml>=6.0.3",
+]
+
+[project.scripts]
+ecs-consul-reg = "ecs_consul_reg:main"
+
+[build-system]
+requires = ["uv_build>=0.9.15,<0.10.0"]
+build-backend = "uv_build"
